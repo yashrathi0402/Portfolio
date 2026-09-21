@@ -68,7 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
 /* GRIDS */
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
-.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}
+.g5{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
 .gc{display:flex;flex-direction:column}.gc img{width:100%;object-fit:contain;background:var(--hi)}.gc:hover img{transform:scale(1.012);transition:transform .3s}
 .pl{font-family:var(--fm);font-size:12px;letter-spacing:.06em;color:var(--mid);margin-bottom:3px;text-transform:uppercase}
 .bg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
@@ -79,7 +79,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
 /* ABOUT: slideshow left, text right */
 .abt{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
 .abt-sl{position:relative;overflow:hidden;background:var(--ink)}
-.abt-sl img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transition:opacity 1s ease}
+.abt-sl img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease}
 .abt-sl img.vis{opacity:1}
 .abt-txt{padding:56px 44px;display:flex;flex-direction:column;justify-content:center;background:var(--ink);color:var(--paper)}
 .abt-txt h2{font-family:var(--fh);font-size:clamp(26px,3vw,38px);font-weight:400;margin-bottom:20px;line-height:1.2}
@@ -110,12 +110,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
 @media(max-width:768px){
   :root{--px:20px}
   .hm .w{grid-template-columns:1fr}
-  .g3,.g5{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}
+  .g3,.g5{grid-template-columns:1fr}.g2{grid-template-columns:1fr}
   .bg{grid-template-columns:1fr 1fr}.ig{grid-template-columns:1fr}
   .abt{grid-template-columns:1fr}.abt-sl{height:50vh}
   .abt-txt{padding:36px 20px}
   .te{grid-template-columns:1fr}.bsb{flex-direction:column;gap:14px}
-  .nr{gap:4px}.nl{padding:8px 10px;font-size:13px}
+    .nb{font-size:19px}
+  .nr{gap:2px}.nl{padding:6px 8px;font-size:11px}
+  .nrs{font-size:10px;padding:5px 10px;margin-left:2px}
   .cr{flex-direction:column;gap:6px;align-items:flex-start}
   .hb{flex-direction:column}.btn{width:100%;text-align:center;justify-content:center}
   .test-grid{grid-template-columns:1fr}
@@ -170,14 +172,16 @@ function go(id){
 
 <div id="work" class="pg" style="display:none">
 <section class="sec"><div class="w">
-<h2 class="sh">Four brands, four different problems.</h2><hr class="hr">
+<h2 class="sh">Four brands, four different problems.</h2>
+<p style="font-size:13px;color:var(--mid);margin-bottom:20px">Employer: <a href="https://www.zamstars.com/" target="_blank" style="color:var(--warm);border-bottom:1px solid var(--warm)">Zamstars</a> · May 2025 – July 2026</p>
+<hr class="hr">
 <div class="ey">01 · SCHOOL, B2C</div><h3 class="ssh">Tatva Global School</h3>
 <p class="bi">CBSE day school in Kukatpally, Hyderabad.</p>
 <div class="lr"><a href="https://www.facebook.com/TatvaGlobalSchool" target="_blank" class="lp">Facebook ↗</a><a href="https://www.instagram.com/tatva_global_school" target="_blank" class="lp">Instagram ↗</a><a href="https://www.linkedin.com/school/tatva-global-school/" target="_blank" class="lp">LinkedIn ↗</a><a href="https://tatvaglobalschool.com" target="_blank" class="lp">Website ↗</a></div>
 <div class="tl">Before I joined, after I joined, after I shipped</div><h4 class="ssh">Three phases. Same account, different content.</h4>
 <p class="bp">The obvious fix for a weak school feed is better production. Better images, more consistent posting, cleaner captions. What I noticed was that production quality didn't correlate with what performed. The posts that stopped the scroll were about things that actually happened at the school. The ten pillars that replaced the calendar weren't a new content strategy, they were an observation.</p>
 <div class="g3"><div class="gc"><div class="pl">Pre-Yash, Inherited</div><img src="assets/TGS POST (6 apr 2025).jpeg" alt=""><div class="cap">Ram Navami, April 6, 2025</div><a href="https://www.instagram.com/p/DIFcafNpUMs/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><div class="pl">First two months, Observation</div><img src="assets/TGS POST (28 july 2025).jpeg" alt=""><div class="cap">Conservation Day, July 28, 2025</div><a href="https://www.instagram.com/p/DMoyUsPBJvW/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><div class="pl">New strategy, Owned</div><img src="assets/TGS POST (17 sept 2025).jpeg" alt=""><div class="cap">Stakeholder Voices, Sept 17, 2025</div><a href="https://www.instagram.com/p/DOszcDnDHFR/" target="_blank" class="vl">View post ↗</a></div></div>
-<div class="mn">Joined as Associate, Social Media & Content. Promoted to Assistant Manager, Brand in April 2026.</div>
+<div class="mn">Joined as Associate, Social Media & Content.<br>Promoted to Assistant Manager, Brand in April 2026.</div>
 <div class="tl">The new strategy in practice</div><h4 class="ssh">Four months in, the work looked like this.</h4>
 <div class="g3"><div class="gc"><img src="assets/TGS POST (25 dec 2025).jpeg" alt=""><div class="cap">Christmas, doing the brand's actual job</div><a href="https://www.instagram.com/p/DSq8ViPkQDg/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (17 sept 2025).jpeg" alt=""><div class="cap">"The Quiet Power of I Will"</div><a href="https://www.instagram.com/p/DOszcDnDHFR/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (23 jan 2026).jpeg" alt=""><div class="cap">Teacher Craft, teachers as the brand</div><a href="https://www.instagram.com/p/DT2gPMFEYWx/" target="_blank" class="vl">View post ↗</a></div></div>
 <div class="tl">The numbers</div><h4 class="ssh">Before and after, same dashboard.</h4>
