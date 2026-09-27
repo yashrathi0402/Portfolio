@@ -4,9 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yash Rathi</title>
+
 <meta property="og:title" content="Yash Rathi — Brand & Content Strategist">
-<meta property="og:image" content="assets/main image.png">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta property="og:description" content="Brand & Content Strategist. I read a brand until I know what it's actually trying to say.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yashhhhrathi.netlify.app/">
+<meta property="og:image" content="https://yashhhhrathi.netlify.app/assets/main%20image.png">
+<meta property="og:image:alt" content="Yash Rathi — Brand & Content Strategist">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yash Rathi — Brand & Content Strategist">
+<meta name="twitter:description" content="Brand & Content Strategist. I read a brand until I know what it's actually trying to say.">
+<meta name="twitter:image" content="https://yashhhhrathi.netlify.app/assets/main%20image.png"><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--ink:#0A0A0A;--paper:#F5F1EB;--mid:#6B6B68;--hi:#ECEAE4;--warm:#D4602C;--fh:'Lora',Georgia,serif;--fb:'Manrope',system-ui,sans-serif;--fm:'Space Mono',monospace;--mx:1060px;--px:44px}
@@ -22,6 +31,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
 .nl.act{color:var(--ink)}.nl.act::after{transform:scaleX(1)}
 .nrs{font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:8px 18px;border:1.5px solid var(--ink);margin-left:12px;transition:all .25s;display:inline-flex;align-items:center;gap:6px}
 .nrs:hover{background:var(--ink);color:var(--paper)}
+.hbg{display:none}
 
 .pg{display:none}.pg.on{display:block}
 .w{max-width:var(--mx);margin:0 auto;padding:0 var(--px)}
@@ -79,7 +89,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
 /* ABOUT: slideshow left, text right */
 .abt{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
 .abt-sl{position:relative;overflow:hidden;background:var(--ink)}
-.abt-sl img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease}
+.abt-sl img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;opacity:0;transition:opacity 1s ease}
 .abt-sl img.vis{opacity:1}
 .abt-txt{padding:56px 44px;display:flex;flex-direction:column;justify-content:center;background:var(--ink);color:var(--paper)}
 .abt-txt h2{font-family:var(--fh);font-size:clamp(26px,3vw,38px);font-weight:400;margin-bottom:20px;line-height:1.2}
@@ -115,9 +125,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,247,244,
   .abt{grid-template-columns:1fr}.abt-sl{height:50vh}
   .abt-txt{padding:36px 20px}
   .te{grid-template-columns:1fr}.bsb{flex-direction:column;gap:14px}
-    .nb{font-size:19px}
-  .nr{gap:2px}.nl{padding:6px 8px;font-size:11px}
-  .nrs{font-size:10px;padding:5px 10px;margin-left:2px}
+    .hbg{display:block;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink)}
+  .nr{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:24px var(--px);gap:0;z-index:99}
+  .nr.open{display:flex}
+  .nl{width:100%;padding:16px 0;font-size:17px;border-bottom:1px solid var(--hi)}
+  .nrs{margin-left:0;margin-top:16px}
   .cr{flex-direction:column;gap:6px;align-items:flex-start}
   .hb{flex-direction:column}.btn{width:100%;text-align:center;justify-content:center}
   .test-grid{grid-template-columns:1fr}
@@ -135,7 +147,8 @@ function go(id){
   var links=document.querySelectorAll('.nl');
   for(var j=0;j<links.length;j++){links[j].classList.remove('act')}
   var act=document.querySelector('[data-pg="'+id+'"]');
-  if(act)act.classList.add('act');
+if(act)act.classList.add('act');
+document.querySelector('.nr').classList.remove('open');
 }
 </script>
 </head>
@@ -143,6 +156,7 @@ function go(id){
 
 <nav>
   <span class="nb" onclick="go('home')">Yash Rathi</span>
+  <button class="hbg" onclick="document.querySelector('.nr').classList.toggle('open')">☰</button>
   <div class="nr">
     <a class="nl" data-pg="work" onclick="go('work')">Work</a>
     <a class="nl" data-pg="ideas" onclick="go('ideas')">Ideas</a>
@@ -173,17 +187,23 @@ function go(id){
 <div id="work" class="pg" style="display:none">
 <section class="sec"><div class="w">
 <h2 class="sh">Four brands, four different problems.</h2>
-<p style="font-size:13px;color:var(--mid);margin-bottom:20px">Employer: <a href="https://www.zamstars.com/" target="_blank" style="color:var(--warm);border-bottom:1px solid var(--warm)">Zamstars</a> · May 2025 – July 2026</p>
-<hr class="hr">
-<div class="ey">01 · SCHOOL, B2C</div><h3 class="ssh">Tatva Global School</h3>
+
+<p style="font-size:13px;color:var(--mid);margin-bottom:8px">
+  All of this happened at <a href="https://www.zamstars.com/" target="_blank" style="color:var(--warm);border-bottom:1px solid var(--warm)">Zamstars</a> · May 2025 – July 2026.
+</p>
+
+<div class="mn">
+  Joined as Associate, Social Media & Content.<br>
+  Promoted to Assistant Manager, Brand in April 2026.
+</div>
+
+<hr class="hr"><div class="ey">01 · SCHOOL, B2C</div><h3 class="ssh">Tatva Global School</h3>
 <p class="bi">CBSE day school in Kukatpally, Hyderabad.</p>
 <div class="lr"><a href="https://www.facebook.com/TatvaGlobalSchool" target="_blank" class="lp">Facebook ↗</a><a href="https://www.instagram.com/tatva_global_school" target="_blank" class="lp">Instagram ↗</a><a href="https://www.linkedin.com/school/tatva-global-school/" target="_blank" class="lp">LinkedIn ↗</a><a href="https://tatvaglobalschool.com" target="_blank" class="lp">Website ↗</a></div>
 <div class="tl">Before I joined, after I joined, after I shipped</div><h4 class="ssh">Three phases. Same account, different content.</h4>
 <p class="bp">The obvious fix for a weak school feed is better production. Better images, more consistent posting, cleaner captions. What I noticed was that production quality didn't correlate with what performed. The posts that stopped the scroll were about things that actually happened at the school. The ten pillars that replaced the calendar weren't a new content strategy, they were an observation.</p>
 <div class="g3"><div class="gc"><div class="pl">Pre-Yash, Inherited</div><img src="assets/TGS POST (6 apr 2025).jpeg" alt=""><div class="cap">Ram Navami, April 6, 2025</div><a href="https://www.instagram.com/p/DIFcafNpUMs/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><div class="pl">First two months, Observation</div><img src="assets/TGS POST (28 july 2025).jpeg" alt=""><div class="cap">Conservation Day, July 28, 2025</div><a href="https://www.instagram.com/p/DMoyUsPBJvW/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><div class="pl">New strategy, Owned</div><img src="assets/TGS POST (17 sept 2025).jpeg" alt=""><div class="cap">Stakeholder Voices, Sept 17, 2025</div><a href="https://www.instagram.com/p/DOszcDnDHFR/" target="_blank" class="vl">View post ↗</a></div></div>
-<div class="mn">Joined as Associate, Social Media & Content.<br>Promoted to Assistant Manager, Brand in April 2026.</div>
-<div class="tl">The new strategy in practice</div><h4 class="ssh">Four months in, the work looked like this.</h4>
-<div class="g3"><div class="gc"><img src="assets/TGS POST (25 dec 2025).jpeg" alt=""><div class="cap">Christmas, doing the brand's actual job</div><a href="https://www.instagram.com/p/DSq8ViPkQDg/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (17 sept 2025).jpeg" alt=""><div class="cap">"The Quiet Power of I Will"</div><a href="https://www.instagram.com/p/DOszcDnDHFR/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (23 jan 2026).jpeg" alt=""><div class="cap">Teacher Craft, teachers as the brand</div><a href="https://www.instagram.com/p/DT2gPMFEYWx/" target="_blank" class="vl">View post ↗</a></div></div>
+<div class="tl">The new strategy in practice</div><h4 class="ssh">Four months in, the work looked like this.</h4><div class="g3"><div class="gc"><img src="assets/TGS POST (25 dec 2025).jpeg" alt=""><div class="cap">Christmas, doing the brand's actual job</div><a href="https://www.instagram.com/p/DSq8ViPkQDg/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (17 sept 2025).jpeg" alt=""><div class="cap">"The Quiet Power of I Will"</div><a href="https://www.instagram.com/p/DOszcDnDHFR/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST (23 jan 2026).jpeg" alt=""><div class="cap">Teacher Craft, teachers as the brand</div><a href="https://www.instagram.com/p/DT2gPMFEYWx/" target="_blank" class="vl">View post ↗</a></div></div>
 <div class="tl">The numbers</div><h4 class="ssh">Before and after, same dashboard.</h4>
 <p class="bp">Old approach (June to August 2025) versus the new strategy's first seven months. Paid isn't being claimed here.</p>
 <div class="g2"><div class="gc"><img src="assets/Fb jun25-aug25(breakdown).png" alt=""><div class="cap">Before, Facebook</div></div><div class="gc"><img src="assets/fb sept-mar2026(breakdown).png" alt=""><div class="cap">After, Facebook</div></div><div class="gc"><img src="assets/Ig jun 2025-aug2025(breakdown).png" alt=""><div class="cap">Before, Instagram</div></div><div class="gc"><img src="assets/Ig sept-mar2026(breakdown).png" alt=""><div class="cap">After, Instagram</div></div></div>
@@ -193,7 +213,7 @@ function go(id){
 <div class="ey">ADMISSIONS · SINCE FEB 2026</div><h4 class="ssh">Print and Meta, working in tandem.</h4>
 <p class="bp">Five to six creative sets per grade group, targeted to parents by class.</p>
 <div class="bsb"><div><div class="bsn">803</div><div class="bsl">Admission leads, since Feb 2026</div><div class="bsf">verified against Meta Leads Centre dashboard</div></div><div style="flex:1"><img src="assets/Ig Feb-jun2026(leads).png" alt="" style="max-width:280px;object-fit:contain;border:1px solid var(--hi)"><div class="cap">Meta Leads Centre, Feb–June 2026</div></div></div>
-<div class="g5"><div class="gc"><img src="assets/TGS META AD 1.png" alt=""></div><div class="gc"><img src="assets/TGS META AD 2.png" alt=""></div><div class="gc"><img src="assets/TGS Admission hoarding mockup image 1.jpeg" alt=""></div><div class="gc"><img src="assets/TGS Admission hoarding mockup image 2.jpeg" alt=""></div><div class="gc"><img src="assets/TGS India Times magazine.png" alt=""></div></div>
+<div class="g5"><div class="gc"><img src="assets/TGS META AD 1.png" alt=""></div><div class="gc"><img src="assets/TGS META AD 2.png" alt=""></div><div class="gc"><img src="assets/TGS India Times magazine.png" alt=""></div><div class="gc"><img src="assets/TGS Admission hoarding mockup image 2.jpeg" alt=""></div><div class="gc"><img src="assets/TGS Admission hoarding mockup image 1.jpeg" alt=""></div></div>
 <div class="tl">Where this is now</div><h4 class="ssh">Version 2, currently running.</h4>
 <p class="bp">This version was part of making Tatva's branding cohesive.</p>
 <div class="g3"><div class="gc"><img src="assets/TGS POST 1 (11 may 2026).jpeg" alt=""><div class="cap">Tatva Pulse, May 11</div><a href="https://www.instagram.com/p/DYMoNw7mWs8/" target="_blank" class="vl">View post ↗</a></div><div class="gc"><img src="assets/TGS POST 2 (9 may 2026).jpeg" alt=""><div class="cap">Director's Desk, May 9</div><a href="https://www.instagram.com/reel/DYGsRYoDBGA/" target="_blank" class="vl">View reel ↗</a></div><div class="gc"><img src="assets/TGS POST 5 (1 may 2026).jpeg" alt=""><div class="cap">Micro Wins, May 1</div><a href="https://www.instagram.com/p/DXyT_oYFFMR/" target="_blank" class="vl">View post ↗</a></div></div>
